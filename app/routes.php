@@ -11,7 +11,35 @@
 |
 */
 
-Route::get('/', function()
+Route::get('/', array( 'as' => 'home',function()
 {
-	return View::make('hello');
+  return View::make('home');
+}));
+
+Route::get('/login', array('as' => 'login', function()
+{
+  if (Auth::check())
+    return Redirect::to('/');
+  return View::make('login');
+}));
+
+Route::get('/logout', array('as' => 'logout', function()
+{
+  Auth::logout();
+  return Redirect::route('home');
+}));
+
+Route::post('/login', array('uses' => 'UserController@login'));
+
+Route::get('/register', array('as' => 'register', function()
+{
+  if (Auth::check())
+    return Redirect::to('/');
+	return View::make('register');
+}));
+
+Route::post('/register', array('uses' => 'UserController@register'));
+
+Route::get('/test', function(){
+  return View::make('register');
 });

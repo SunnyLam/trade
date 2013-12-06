@@ -1,0 +1,38 @@
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto -60px;
+  /* Pad bottom by footer height */
+  padding: 70px 0 60px;
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+  height: 60px;
+  background-color: #F8F8F8;
+  border-width: 1px 0 0;
+  border-color: #E7E7E7;
+}
+
+#footer > .container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+#footer > .container .credit {
+  margin: 20px 0;
+}
+
+/* login & register */
+.login_register_form_container{
+  width: 500px;
+  margin: 150px auto 0;
+}
