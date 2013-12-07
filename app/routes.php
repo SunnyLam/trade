@@ -40,6 +40,18 @@ Route::get('/register', array('as' => 'register', function()
 
 Route::post('/register', array('uses' => 'UserController@register'));
 
+Route::get('/node/create', array('as' => 'node_create', function()
+{
+  return View::make('node.create');
+}));
+
+// Route::post('/node/create', array('uses' => 'NodeController@create'));
+
 Route::get('/test', function(){
-  return View::make('register');
+  $width = 300;
+$height = 200;
+$backgroundColor = 'FF0000'; // optionnal, can be null to transparent
+
+$layer = PHPImageWorkshop\ImageWorkshop::initVirginLayer($width, $height, $backgroundColor);
+return $layer;
 });

@@ -1,6 +1,6 @@
 <?php
 
-function dl($data, $label = NULL) {
+function xx($data, $label = NULL) {
   return drupal_debug($data, $label);
 }
 

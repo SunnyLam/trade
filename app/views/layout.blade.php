@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
 
     <!-- Custom styles for this template -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -39,7 +39,7 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span> Home </a></li>
+            <li class="active"><a href="{{ URL::route('home') }}"><span class="glyphicon glyphicon-home"></span> Home </a></li>
             <li><a href="#about"><span class="glyphicon glyphicon-fire"></span> About </a></li>
             <li><a href="#contact"><span class="glyphicon glyphicon-envelope"></span> Contact </a></li>
             <li class="dropdown">
@@ -56,12 +56,14 @@
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
+            <li><a href="{{ URL::route('node_create'); }}"><span class="glyphicon glyphicon-bullhorn"></span> Publish </a></li>
+            <li><img src="js/holder.js/48x48" alt="..." class="img-circle"></li>
             @if ( Auth::check() )
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Hi, {{ Auth::user()->name }} <b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> {{ Auth::user()->name }} <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="#"><span class="glyphicon glyphicon-user"></span> Profile </a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-envelope"></span> Messages </a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-envelope"></span> Messages <span class="badge">42</span></a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-wrench"></span> Settings </a></li>
                 <li><a href="{{ URL::route('logout'); }}"><span class="glyphicon glyphicon-off"></span> Logout </a></li>
               </ul>
@@ -92,7 +94,7 @@
 
     <!-- Google CDN jQuery library -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="js/holder.js"></script>
+    <script src="{{ asset('js/holder.js') }}"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
 
