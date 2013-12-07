@@ -40,12 +40,12 @@ Route::get('/register', array('as' => 'register', function()
 
 Route::post('/register', array('uses' => 'UserController@register'));
 
-Route::get('/node/create', array('as' => 'node_create', function()
+Route::get('/node/create', array('as' => 'create_node', function()
 {
   return View::make('node.create');
 }));
 
-// Route::post('/node/create', array('uses' => 'NodeController@create'));
+Route::post('/node/create', array('uses' => 'NodeController@create'));
 
 Route::get('/test', function(){
   $width = 300;
