@@ -40,18 +40,23 @@ Route::get('/register', array('as' => 'register', function()
 
 Route::post('/register', array('uses' => 'UserController@register'));
 
-Route::get('/node/create', array('as' => 'create_node', function()
+Route::get('/node/create', array('before' => 'auth', 'as' => 'create_node', function()
 {
   return View::make('node.create');
 }));
 
-Route::post('/node/create', array('uses' => 'NodeController@create'));
+Route::post('/node/create', array('before' => 'auth', 'uses' => 'NodeController@create'));
+
 
 Route::get('/test', function(){
-  $width = 300;
-$height = 200;
-$backgroundColor = 'FF0000'; // optionnal, can be null to transparent
 
-$layer = PHPImageWorkshop\ImageWorkshop::initVirginLayer($width, $height, $backgroundColor);
-return $layer;
+  return FILE_STORAGE_PATH;
+  $filename = 'Jellyfish.jpg';
+  $thumbname = 'thumb1.jpg';
+  $layer = PHPImageWorkshop\ImageWorkshop::initFromPath(UPLOADED_FILE_PATH . $filename);
+
+  $layer->resizeInPixel(200, null, true);
+
+  $layer->save( UPLOADED_FILE_PATH, $thumbname);
+  return 'Done!';
 });
