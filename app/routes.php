@@ -11,10 +11,15 @@
 |
 */
 
-Route::get('/', array( 'as' => 'home',function()
+
+Route::get('/', array( 'as' => 'home', function()
 {
   return View::make('home');
 }));
+
+/*======================================
+=            Login & Logout            =
+======================================*/
 
 Route::get('/login', array('as' => 'login', function()
 {
@@ -23,13 +28,17 @@ Route::get('/login', array('as' => 'login', function()
   return View::make('login');
 }));
 
+Route::post('/login', array('uses' => 'UserController@login'));
+
 Route::get('/logout', array('as' => 'logout', function()
 {
   Auth::logout();
   return Redirect::route('home');
 }));
 
-Route::post('/login', array('uses' => 'UserController@login'));
+/*================================
+=            Register            =
+================================*/
 
 Route::get('/register', array('as' => 'register', function()
 {
@@ -40,6 +49,10 @@ Route::get('/register', array('as' => 'register', function()
 
 Route::post('/register', array('uses' => 'UserController@register'));
 
+/*=================================
+=            Node CRUD            =
+=================================*/
+
 Route::get('/node/create', array('before' => 'auth', 'as' => 'create_node', function()
 {
   return View::make('node.create');
@@ -47,16 +60,16 @@ Route::get('/node/create', array('before' => 'auth', 'as' => 'create_node', func
 
 Route::post('/node/create', array('before' => 'auth', 'uses' => 'NodeController@create'));
 
+/*====================================
+=            User Profile            =
+====================================*/
+
+Route::get('/profile/{uid}', array('uses' => 'ProfileController@load'));
+
+/*=================================
+=            Test Case            =
+=================================*/
 
 Route::get('/test', function(){
 
-  return FILE_STORAGE_PATH;
-  $filename = 'Jellyfish.jpg';
-  $thumbname = 'thumb1.jpg';
-  $layer = PHPImageWorkshop\ImageWorkshop::initFromPath(UPLOADED_FILE_PATH . $filename);
-
-  $layer->resizeInPixel(200, null, true);
-
-  $layer->save( UPLOADED_FILE_PATH, $thumbname);
-  return 'Done!';
 });
