@@ -70,9 +70,18 @@ Route::get('/profile/{uid}', array('uses' => 'ProfileController@load'));
 =            Message CRUD            =
 ====================================*/
 
-Route::get('/message/inbox/{uid}', array('uses' => 'MessageController@inbox'));
-
+Route::get('/message/inbox/{uid?}', array('uses' => 'MessageController@inbox'));
 Route::post('/message/send', array('uses' => 'MessageController@send'));
+
+/*===================================
+=            Switch User            =
+===================================*/
+
+Route::get('/switch/{uid}', array(function($uid)
+{
+  Auth::loginUsingId(intval($uid));
+  return 'Bingo~';
+}));
 
 /*=================================
 =            Test Case            =

@@ -2,7 +2,7 @@
 
 class MessageController extends BaseController {
 
-  public function inbox( $uid )
+  public function inbox($uid = 0)
   {
     $data = array(
       'alerts' => Session::get('alerts', null)
@@ -14,7 +14,9 @@ class MessageController extends BaseController {
       $data['user'] = User::find($uid);
       return View::make('message.inbox_user', $data);
     } else {
-
+      $messages = Message::get_messages();
+      $data['messages'] = $messages;
+      return View::make('message.inbox_list', $data);
     }
   }
 
@@ -38,9 +40,6 @@ class MessageController extends BaseController {
       $message->content  = Input::get('content');
       $message->save();
 
-      // $messages = Message::get_messages_by_user(Input::get('to_uid'));
-      // $data['messages'] = $messages;
-
       $alert = array(
         'type'    => 'success',
         'messages' => array('The message has been sent.')
@@ -49,7 +48,6 @@ class MessageController extends BaseController {
 
       $data['user'] = User::find(Input::get('to_uid'));
       return Redirect::to('message/inbox/' . Input::get('to_uid'))->with('alerts', $data['alerts']);
-      // return View::make('message.inbox_user', $data);
     }
     else
     {

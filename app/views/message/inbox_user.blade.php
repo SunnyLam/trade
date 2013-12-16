@@ -34,6 +34,10 @@
           <div class="media-body" style="text-align: right;">
             <h4 class="media-heading">{{Auth::user()->name}}</h4>
             {{$m->content}}
+            <br /><br />
+            <div role="toolbar" class="btn-toolbar">
+              <button class="btn btn-default btn-xs" type="button"><span class="glyphicon glyphicon-trash"></span> Delete </button>
+            </div>
           </div>
         @else
           <a class="pull-left" href="#">
@@ -42,8 +46,13 @@
           <div class="media-body">
             <h4 class="media-heading">{{$user->name}}</h4>
             {{$m->content}}
+            <br /><br />
+            <div role="toolbar" class="btn-toolbar">
+              <button class="btn btn-default btn-xs" type="button"><span class="glyphicon glyphicon-trash"></span> Delete </button>
+            </div>
           </div>
         @endif
+
         </li>
       @endforeach
       </ul>
