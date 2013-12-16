@@ -56,8 +56,7 @@ class UserController extends BaseController {
     );
 
     $data = array(
-      'alerts' => array(
-      ),
+      'alerts' => array(),
       'input' => Input::all()
     );
 

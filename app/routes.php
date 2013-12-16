@@ -66,6 +66,14 @@ Route::post('/node/create', array('before' => 'auth', 'uses' => 'NodeController@
 
 Route::get('/profile/{uid}', array('uses' => 'ProfileController@load'));
 
+/*====================================
+=            Message CRUD            =
+====================================*/
+
+Route::get('/message/inbox/{uid}', array('uses' => 'MessageController@inbox'));
+
+Route::post('/message/send', array('uses' => 'MessageController@send'));
+
 /*=================================
 =            Test Case            =
 =================================*/

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 10, 2013 at 05:20 PM
+-- Generation Time: Dec 16, 2013 at 04:44 PM
 -- Server version: 5.5.23
 -- PHP Version: 5.3.21
 
@@ -46,7 +46,6 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `cid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `nid` int(10) unsigned NOT NULL,
   `uid` int(10) unsigned NOT NULL,
-  `subject` varchar(255) NOT NULL,
   `content` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -72,6 +71,35 @@ CREATE TABLE IF NOT EXISTS `images` (
   PRIMARY KEY (`iid`),
   KEY `nid` (`nid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `messages`
+--
+
+CREATE TABLE IF NOT EXISTS `messages` (
+  `mid` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `from_uid` int(10) NOT NULL,
+  `to_uid` int(10) NOT NULL,
+  `content` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`mid`),
+  KEY `from_uid` (`from_uid`,`to_uid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+
+--
+-- Dumping data for table `messages`
+--
+
+INSERT INTO `messages` (`mid`, `from_uid`, `to_uid`, `content`, `created_at`, `updated_at`) VALUES
+(1, 4, 1, 'Hello~ Nice to meet you!', '2013-12-16 03:52:42', '2013-12-16 03:52:42'),
+(2, 1, 4, 'Hi, I''m fine, thank you!', '2013-12-16 03:53:00', '2013-12-16 03:53:00'),
+(3, 4, 1, 'Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, and caching.\r\n\r\nLaravel aims to make the development process a pleasing one for the developer without sacrificing application functionality. Happy developers make the best code. To this end, we''ve attempted to combine the very best of what we have seen in other web frameworks, including frameworks implemented in other languages, such as Ruby on Rails, ASP.NET MVC, and Sinatra.\r\n\r\nLaravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.', '2013-12-16 00:06:44', '2013-12-16 00:06:44'),
+(4, 3, 2, 'Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, and caching.\r\n\r\nLaravel aims to make the development process a pleasing one for the developer without sacrificing application functionality. Happy developers make the best code. To this end, we''ve attempted to combine the very best of what we have seen in other web frameworks, including frameworks implemented in other languages, such as Ruby on Rails, ASP.NET MVC, and Sinatra.\r\n\r\nLaravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.', '2013-12-16 00:07:23', '2013-12-16 00:07:23'),
+(7, 1, 4, 'Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages. For inline dismissal, use the alerts jQuery plugin.', '2013-12-16 00:20:28', '2013-12-16 00:20:28'),
+(8, 4, 1, 'Alerts don''t have default classes, only base and modifier classes. A default gray alert doesn''t make too much sense, so you''re required to specify a type via contextual class. Choose from success, info, warning, or danger.', '2013-12-16 00:23:11', '2013-12-16 00:23:11');
 
 -- --------------------------------------------------------
 
