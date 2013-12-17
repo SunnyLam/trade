@@ -10,11 +10,8 @@ class UserController extends BaseController {
       'password'              =>'required|alpha_num',
     );
 
-    $data = array(
-      'alerts' => array(
-      ),
-      'input' => Input::all()
-    );
+    $data = prepare_data();
+
     $validator = Validator::make(Input::all(), $rules);
 
     if ($validator->passes())
@@ -55,10 +52,7 @@ class UserController extends BaseController {
       'password_confirmation' =>'required|alpha_num|between:5,12'
     );
 
-    $data = array(
-      'alerts' => array(),
-      'input' => Input::all()
-    );
+    $data = prepare_data();
 
     $validator = Validator::make(Input::all(), $rules);
 

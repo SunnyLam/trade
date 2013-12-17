@@ -10,9 +10,9 @@
     @endif
     <div class="message_form_container">
       <form class="form-horizontal" role="form" action="{{ URL::to('/message/send') }}" method="post">
-        <input type="hidden" name="to_uid" value="{{$user->uid}}" />
+        <input type="hidden" name="to_uid" value="{{$inbox_user->uid}}" />
         <div class="form-group">
-          <p class="form-control-static">To: {{$user->name}}</p>
+          <p class="form-control-static">To: {{$inbox_user->name}}</p>
         </div>
         <div class="form-group">
           <textarea class="form-control" name="content" rows="3"></textarea>
@@ -27,12 +27,12 @@
       <ul class="media-list">
       @foreach ($messages as $m)
         <li class="media">
-        @if ( Auth::user()->uid == $m->from_uid )
+        @if ( $user->uid == $m->from_uid )
           <a class="pull-right" href="#">
             <img class="media-object" src="{{ asset('js/holder.js/48x48') }}" alt="...">
           </a>
           <div class="media-body" style="text-align: right;">
-            <h4 class="media-heading">{{Auth::user()->name}}</h4>
+            <h4 class="media-heading">{{$user->name}}</h4>
             {{$m->content}}
             <br /><br />
             <div role="toolbar" class="btn-toolbar">
@@ -44,7 +44,7 @@
             <img class="media-object" src="{{ asset('js/holder.js/48x48') }}" alt="...">
           </a>
           <div class="media-body">
-            <h4 class="media-heading">{{$user->name}}</h4>
+            <h4 class="media-heading">{{$inbox_user->name}}</h4>
             {{$m->content}}
             <br /><br />
             <div role="toolbar" class="btn-toolbar">

@@ -4,14 +4,12 @@ class MessageController extends BaseController {
 
   public function inbox($uid = 0)
   {
-    $data = array(
-      'alerts' => Session::get('alerts', null)
-    );
+    $data = prepare_data();
 
     if (intval($uid) > 0) {
       $messages = Message::get_messages_by_user($uid);
       $data['messages'] = $messages;
-      $data['user'] = User::find($uid);
+      $data['inbox_user'] = User::find($uid);
       return View::make('message.inbox_user', $data);
     } else {
       $messages = Message::get_messages();
@@ -25,10 +23,7 @@ class MessageController extends BaseController {
       'to_uid' => 'required|numeric',
     );
 
-    $data = array(
-      'alerts' => array(),
-      'input' => Input::all()
-    );
+    $data = prepare_data();
 
     $validator = Validator::make(Input::all(), $rules);
 
@@ -46,7 +41,7 @@ class MessageController extends BaseController {
       );
       array_push($data['alerts'], $alert);
 
-      $data['user'] = User::find(Input::get('to_uid'));
+      $data['inbox_user'] = User::find(Input::get('to_uid'));
       return Redirect::to('message/inbox/' . Input::get('to_uid'))->with('alerts', $data['alerts']);
     }
     else
