@@ -1,7 +1,7 @@
 <?php
 
-class MessageController extends BaseController {
-
+class MessageController extends BaseController
+{
   public function inbox($uid = 0)
   {
     $data = prepare_data();
@@ -18,7 +18,8 @@ class MessageController extends BaseController {
     }
   }
 
-  public function send(){
+  public function send()
+  {
     $rules = array(
       'to_uid' => 'required|numeric',
     );
@@ -27,8 +28,7 @@ class MessageController extends BaseController {
 
     $validator = Validator::make(Input::all(), $rules);
 
-    if ($validator->passes())
-    {
+    if ($validator->passes()){
       $message           = new Message;
       $message->from_uid = Auth::user()->uid;
       $message->to_uid   = Input::get('to_uid');
@@ -43,9 +43,7 @@ class MessageController extends BaseController {
 
       $data['inbox_user'] = User::find(Input::get('to_uid'));
       return Redirect::to('message/inbox/' . Input::get('to_uid'))->with('alerts', $data['alerts']);
-    }
-    else
-    {
+    } else {
       $messages = $validator->messages();
       $alert = array(
         'type'    => 'danger',
@@ -54,6 +52,5 @@ class MessageController extends BaseController {
       array_push($data['alerts'], $alert);
       return View::make('message.inbox_user', $data);
     }
-
   }
 }

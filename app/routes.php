@@ -14,7 +14,8 @@
 
 Route::get('/', array( 'as' => 'home', function()
 {
-  return View::make('home');
+  $data = prepare_data();
+  return View::make('home', $data);
 }));
 
 /*======================================
@@ -64,7 +65,19 @@ Route::post('/node/create', array('before' => 'auth', 'uses' => 'NodeController@
 =            User Profile            =
 ====================================*/
 
-Route::get('/profile/{uid}', array('uses' => 'ProfileController@load'));
+Route::get('/profile/{uid?}', array('uses' => 'ProfileController@view'));
+
+Route::get('/profile/{uid}/edit',
+  array(
+    'as' => 'edit_profile',
+    'uses' => 'ProfileController@edit'
+  ));
+
+Route::post('/profile/{uid}/upload_avatar',
+  array(
+    'as' => 'upload_avatar',
+    'uses' => 'ProfileController@upload_avatar'
+  ));
 
 /*====================================
 =            Message CRUD            =

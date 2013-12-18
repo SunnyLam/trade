@@ -62,7 +62,7 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"> {{ Auth::user()->name }} <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Profile </a></li>
+                <li><a href="{{ URL::route('edit_profile', array('uid' => $user->uid)); }}"><span class="glyphicon glyphicon-user"></span> Profile </a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-envelope"></span> Messages <span class="badge">42</span></a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-wrench"></span> Settings </a></li>
                 <li><a href="{{ URL::route('logout'); }}"><span class="glyphicon glyphicon-off"></span> Logout </a></li>
