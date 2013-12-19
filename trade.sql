@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 16, 2013 at 04:44 PM
+-- Generation Time: Dec 19, 2013 at 10:27 AM
 -- Server version: 5.5.23
 -- PHP Version: 5.3.21
 
@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`mid`),
   KEY `from_uid` (`from_uid`,`to_uid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `messages`
@@ -97,9 +97,10 @@ INSERT INTO `messages` (`mid`, `from_uid`, `to_uid`, `content`, `created_at`, `u
 (1, 4, 1, 'Hello~ Nice to meet you!', '2013-12-16 03:52:42', '2013-12-16 03:52:42'),
 (2, 1, 4, 'Hi, I''m fine, thank you!', '2013-12-16 03:53:00', '2013-12-16 03:53:00'),
 (3, 4, 1, 'Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, and caching.\r\n\r\nLaravel aims to make the development process a pleasing one for the developer without sacrificing application functionality. Happy developers make the best code. To this end, we''ve attempted to combine the very best of what we have seen in other web frameworks, including frameworks implemented in other languages, such as Ruby on Rails, ASP.NET MVC, and Sinatra.\r\n\r\nLaravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.', '2013-12-16 00:06:44', '2013-12-16 00:06:44'),
-(4, 3, 2, 'Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, and caching.\r\n\r\nLaravel aims to make the development process a pleasing one for the developer without sacrificing application functionality. Happy developers make the best code. To this end, we''ve attempted to combine the very best of what we have seen in other web frameworks, including frameworks implemented in other languages, such as Ruby on Rails, ASP.NET MVC, and Sinatra.\r\n\r\nLaravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.', '2013-12-16 00:07:23', '2013-12-16 00:07:23'),
+(4, 5, 1, 'Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, and caching.\r\n\r\nLaravel aims to make the development process a pleasing one for the developer without sacrificing application functionality. Happy developers make the best code. To this end, we''ve attempted to combine the very best of what we have seen in other web frameworks, including frameworks implemented in other languages, such as Ruby on Rails, ASP.NET MVC, and Sinatra.\r\n\r\nLaravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.', '2013-12-16 00:07:23', '2013-12-16 00:07:23'),
 (7, 1, 4, 'Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages. For inline dismissal, use the alerts jQuery plugin.', '2013-12-16 00:20:28', '2013-12-16 00:20:28'),
-(8, 4, 1, 'Alerts don''t have default classes, only base and modifier classes. A default gray alert doesn''t make too much sense, so you''re required to specify a type via contextual class. Choose from success, info, warning, or danger.', '2013-12-16 00:23:11', '2013-12-16 00:23:11');
+(8, 4, 1, 'Alerts don''t have default classes, only base and modifier classes. A default gray alert doesn''t make too much sense, so you''re required to specify a type via contextual class. Choose from success, info, warning, or danger.', '2013-12-16 00:23:11', '2013-12-16 00:23:11'),
+(9, 1, 4, 'test', '2013-12-16 19:07:02', '2013-12-16 19:07:02');
 
 -- --------------------------------------------------------
 
@@ -154,18 +155,20 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` varchar(255) NOT NULL,
   `password` varchar(60) NOT NULL,
   `name` varchar(255) NOT NULL,
+  `avatar` tinyint(1) NOT NULL DEFAULT '0',
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`uid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`uid`, `email`, `password`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'augustyip@gmail.com', '$2y$08$gy3w4IvmEYyjCtgNnyMnTut0QAUezsx/R35tlq.ANL3aNnvimEaQm', 'August Yip', '2013-12-05 10:35:38', '2013-12-04 01:41:17'),
-(4, 'sunnymoodlam@163.com', '$2y$08$cnMBo/YT4zcJtNJmSjZfXeNl4z.x77Y/YRXbqlXwYE5knjbLdeiUu', 'Sunny', '2013-12-05 02:35:20', '2013-12-05 02:35:20');
+INSERT INTO `users` (`uid`, `email`, `password`, `name`, `avatar`, `created_at`, `updated_at`) VALUES
+(1, 'augustyip@gmail.com', '$2y$08$gy3w4IvmEYyjCtgNnyMnTut0QAUezsx/R35tlq.ANL3aNnvimEaQm', 'August Yip', 1, '2013-12-05 10:35:38', '2013-12-18 02:30:24'),
+(4, 'sunnymoodlam@163.com', '$2y$08$cnMBo/YT4zcJtNJmSjZfXeNl4z.x77Y/YRXbqlXwYE5knjbLdeiUu', 'Sunny', 0, '2013-12-05 02:35:20', '2013-12-05 02:35:20'),
+(5, 'reg@august.hk', '$2y$08$gy3w4IvmEYyjCtgNnyMnTut0QAUezsx/R35tlq.ANL3aNnvimEaQm', '前世好人', 0, '2013-12-16 09:40:27', '2013-12-16 09:40:27');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

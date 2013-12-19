@@ -23,3 +23,40 @@ function prepare_data()
     'input'      => Input::all()
   );
 }
+
+function display_avatar($user, $size = 'normal')
+{
+  if (is_object($user) && $user->avatar){
+    switch ($size) {
+      case 'large':
+        return asset( AVATAR_PUBLIC_PATH . $user->uid . '/large.png');
+        break;
+      case 'normal':
+        return asset( AVATAR_PUBLIC_PATH . $user->uid . '/normal.png');
+        break;
+      case 'mini':
+        return asset( AVATAR_PUBLIC_PATH . $user->uid . '/mini.png');
+        break;
+
+      default:
+        return asset( AVATAR_PUBLIC_PATH . $user->uid . '/normal.png');
+        break;
+    }
+  } else {
+    switch ($size) {
+      case 'large':
+        return asset('js/holder.js/96x96');
+        break;
+      case 'normal':
+        return asset('js/holder.js/48x48');
+        break;
+      case 'mini':
+        return asset('js/holder.js/24x24');
+        break;
+
+      default:
+        return asset('js/holder.js/48x48');
+        break;
+    }
+  }
+}

@@ -29,7 +29,7 @@
         <li class="media">
         @if ( $user->uid == $m->from_uid )
           <a class="pull-right" href="#">
-            <img class="media-object" src="{{ asset('js/holder.js/48x48') }}" alt="...">
+            <img class="media-object" src="{{display_avatar($user)}}" alt="{{$user->name}}">
           </a>
           <div class="media-body" style="text-align: right;">
             <h4 class="media-heading">{{$user->name}}</h4>
@@ -41,7 +41,7 @@
           </div>
         @else
           <a class="pull-left" href="#">
-            <img class="media-object" src="{{ asset('js/holder.js/48x48') }}" alt="...">
+            <img class="media-object" src="{{display_avatar($inbox_user)}}" alt="{{$inbox_user->name}}">
           </a>
           <div class="media-body">
             <h4 class="media-heading">{{$inbox_user->name}}</h4>

@@ -42,7 +42,7 @@ class ProfileController extends BaseController {
       $layer = PHPImageWorkshop\ImageWorkshop::initFromPath(
         $file_path . 'original.' . $extension);
 
-      $layer->resizeInPixel( $large_width, $large_width, false);
+      $layer->resizeInPixel( $large_width, $large_width, true);
       $layer->save($file_path, $large_filename);
 
       $layer->resizeInPixel( $normal_width, $normal_width, true);

@@ -57,7 +57,7 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="{{ URL::route('create_node'); }}"><span class="glyphicon glyphicon-bullhorn"></span> Publish </a></li>
-            <li><img src="js/holder.js/48x48" alt="..." class="img-circle"></li>
+            <li><img src="{{display_avatar($user)}}" alt="..." class="img-circle"></li>
             @if ( Auth::check() )
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"> {{ Auth::user()->name }} <b class="caret"></b></a>
