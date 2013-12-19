@@ -14,14 +14,11 @@ class UserController extends BaseController {
 
     $validator = Validator::make(Input::all(), $rules);
 
-    if ($validator->passes())
-    {
-      if (Auth::attempt(array('email' => Input::get('email'), 'password' => Input::get('password'))))
-      {
+    if ($validator->passes()){
+      if (Auth::attempt(array('email' => Input::get('email'),
+        'password' => Input::get('password')))){
         return Redirect::intended();
-      }
-      else
-      {
+      } else {
         $alert = array(
           'type'    => 'danger',
           'messages' => array('Invalid sign-on. Please try again.')
@@ -29,9 +26,7 @@ class UserController extends BaseController {
         array_push($data['alerts'], $alert);
         return View::make('login', $data);
       }
-    }
-    else
-    {
+    } else {
       $messages = $validator->messages();
       $alert = array(
         'type'    => 'danger',
@@ -56,17 +51,14 @@ class UserController extends BaseController {
 
     $validator = Validator::make(Input::all(), $rules);
 
-    if ($validator->passes())
-    {
+    if ($validator->passes()) {
       $user           = new User;
       $user->email    = Input::get('email');
       $user->password = Hash::make(Input::get('password'));
       $user->name     = Input::get('name');
       $user->save();
       return Redirect::route('home');
-    }
-    else
-    {
+    } else {
       $messages = $validator->messages();
       $alert = array(
         'type'    => 'danger',

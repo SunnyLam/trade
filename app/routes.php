@@ -54,12 +54,20 @@ Route::post('/register', array('uses' => 'UserController@register'));
 =            Node CRUD            =
 =================================*/
 
-Route::get('/node/create', array('before' => 'auth', 'as' => 'create_node', function()
-{
-  return View::make('node.create');
-}));
+Route::get('/node/create',
+  array(
+    'before' => 'auth',
+    'as' => 'create_node',
+    function(){
+      $data = prepare_data();
+      return View::make('node.create', $data);
+    }));
 
-Route::post('/node/create', array('before' => 'auth', 'uses' => 'NodeController@create'));
+Route::post('/node/create',
+  array(
+    'before' => 'auth',
+    'uses' => 'NodeController@create'
+  ));
 
 /*====================================
 =            User Profile            =
@@ -93,7 +101,7 @@ Route::post('/message/send', array('uses' => 'MessageController@send'));
 Route::get('/switch/{uid}', array(function($uid)
 {
   Auth::loginUsingId(intval($uid));
-  return 'Bingo~';
+  return Redirect::to_route('home');
 }));
 
 /*=================================

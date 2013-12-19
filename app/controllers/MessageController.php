@@ -42,7 +42,8 @@ class MessageController extends BaseController
       array_push($data['alerts'], $alert);
 
       $data['inbox_user'] = User::find(Input::get('to_uid'));
-      return Redirect::to('message/inbox/' . Input::get('to_uid'))->with('alerts', $data['alerts']);
+      return Redirect::to('message/inbox/' . Input::get('to_uid'))->with('alerts',
+        $data['alerts']);
     } else {
       $messages = $validator->messages();
       $alert = array(

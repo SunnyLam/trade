@@ -19,10 +19,11 @@ class ImageController extends BaseController {
     $image->mime_type = Input::file('image')->getMimeType();
     $image->save();
 
-    if (!is_dir(self::get_image_path() . $image->iid))
-      mkdir(self::get_image_path() . $image->iid);
+    if (!is_dir(IMAGE_STORAGE_PATH . $image->iid))
+      mkdir(IMAGE_STORAGE_PATH . $image->iid);
 
-    Input::file('image')->move(self::get_image_path() . $image->iid, 'original.' . $image->extension);
+    Input::file('image')->move(IMAGE_STORAGE_PATH . $image->iid,
+      'original.' . $image->extension);
 
     self::generate_thumbnail( $image );
 
@@ -31,11 +32,12 @@ class ImageController extends BaseController {
 
   public static function generate_thumbnail( $image )
   {
-    $file_path = self::get_image_path() . $image->iid . '/';
+    $file_path = IMAGE_STORAGE_PATH . $image->iid . '/';
     $large_filename     = 'large.jpg';
     $thumbnail_filename = 'thumbnail.jpg';
 
-    $layer = PHPImageWorkshop\ImageWorkshop::initFromPath( $file_path . 'original.' . $image->extension);
+    $layer = PHPImageWorkshop\ImageWorkshop::initFromPath($file_path .
+      'original.' . $image->extension);
 
     $layer->resizeInPixel( self::$resize_width_large, null, true);
     $layer->save($file_path, $large_filename);
