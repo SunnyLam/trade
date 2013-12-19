@@ -33,3 +33,9 @@ Change `/app/config/database.php` line 55-54
       'prefix'    => '',
     ),
 
+## Contribute Giude
+
+### Style Guide
+
+All coding should adhere to the [PSR-2](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md) standard.
+
