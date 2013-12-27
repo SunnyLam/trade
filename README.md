@@ -15,7 +15,7 @@
 
 ### Install Laravel
 
-    php php composer.phar composer.json
+    php composer.phar composer.json
 
 ### Create Datebase
 Import trade.sql
