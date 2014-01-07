@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 19, 2013 at 10:27 AM
+-- Generation Time: Jan 07, 2014 at 11:59 AM
 -- Server version: 5.5.23
 -- PHP Version: 5.3.21
 
@@ -70,7 +70,14 @@ CREATE TABLE IF NOT EXISTS `images` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`iid`),
   KEY `nid` (`nid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `images`
+--
+
+INSERT INTO `images` (`iid`, `nid`, `name`, `extension`, `size`, `mime_type`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Jellyfish.jpg', 'jpg', 775702, 'image/jpeg', '2013-12-18 20:13:37', '2013-12-18 20:13:38');
 
 -- --------------------------------------------------------
 
