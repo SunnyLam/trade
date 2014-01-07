@@ -1,6 +1,6 @@
 <?php
 
-define('SITE_NAME', 'Trade It !');
+define('SITE_NAME', 'Development');
 
 define('FILE_STORAGE_PATH', public_path() . '/file/');
 
