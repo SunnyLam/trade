@@ -69,6 +69,17 @@ Route::post('/node/create',
     'uses' => 'NodeController@create'
   ));
 
+/*================================
+=            Mypage            =
+================================*/
+
+Route::get('/mypage', array('as' => 'mypage', function()
+{
+  if (Auth::check())
+    return Redirect::to('/');
+  return View::make('mypage');
+}));
+
 /*====================================
 =            User Profile            =
 ====================================*/

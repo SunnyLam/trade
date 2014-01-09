@@ -11,7 +11,7 @@ body {
   /* Negative indent footer by its height */
   margin: 0 auto -30px;
   /* Pad bottom by footer height */
-  padding: 70px 0 30px;
+  padding: 0 0 30px;
 }
 
 /* Set the fixed height of the footer here */
@@ -34,7 +34,24 @@ body {
 
 .navbar-custom{
   border-top: 8px solid #1baf5d;
-  margin: 2px 0 0 0;
+  margin: 2px 0 20px 0;
+}
+
+.nav-li-none{
+  height: 50px;
+  width: 80px;
+}
+
+.navbar-search{
+  width: 80px;
+}
+
+.recommend-align{
+  text-align: center;
+}
+
+.recommend-align p{
+  text-align: justify;
 }
 
 .login-register-aside{
@@ -42,3 +59,4 @@ body {
   margin: 80px 0 0 0;
   line-height: 1.62;
 }
+
