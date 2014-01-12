@@ -32,6 +32,7 @@ body {
   font-size: 12px;
 }
 
+/* Set the navbar for the header */
 .navbar-custom{
   border-top: 8px solid #1baf5d;
   margin: 2px 0 20px 0;
@@ -46,6 +47,7 @@ body {
   width: 80px;
 }
 
+/* recommend in the index */
 .recommend-align{
   text-align: center;
 }
@@ -54,9 +56,15 @@ body {
   text-align: justify;
 }
 
+/* Set the aside for the login and the register page */
 .login-register-aside{
   font-size: 12px;
   margin: 80px 0 0 0;
   line-height: 1.62;
+}
+
+/* Set nav-tabs page */
+.nav-tabs-bottom{
+  margin: 0 0 20px 0;
 }
 

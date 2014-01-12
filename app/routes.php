@@ -70,6 +70,15 @@ Route::post('/node/create',
   ));
 
 /*================================
+=            Search            =
+================================*/
+
+Route::get('/search', function(){
+  $data = prepare_data();
+  return View::make('/search/search', $data);
+});
+
+/*================================
 =            Mypage            =
 ================================*/
 

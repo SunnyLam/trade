@@ -1,7 +1,8 @@
 @extends('layout')
 @section('content')
+
 <div class="page-header">
-  <h1>Create Node</h1>
+  <h1>新增物品</h1>
 </div>
 <div class="row">
   <div class="col-md-9">
