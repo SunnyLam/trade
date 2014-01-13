@@ -16,11 +16,16 @@
     @for ($i = 0; $i < 12; $i++)
     <div class="col-sm-6 col-md-3">
       <div class="thumbnail">
-        <img src="js/holder.js/300x200" alt="...">
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+        <a class="thumbnail-middle" target="_blank" href="#">
+          <img class="story-image" src="js/holder.js/240x240" alt="...">
+        </a>
+        <div class="caption thumbnail-justify">
+          <a target="_blank" href="#"><h3>Thumbnail label</h3></a>
+          <ul class="list-inline">
+            <li><a href="#">发表人</a></li>·
+            <li> 喜欢 123 </li>·
+            <li> 评论 23 </a></li>·
+          </ul>
         </div>
       </div>
     </div>
@@ -31,6 +36,4 @@
   <div class="tab-pane" id="group">...</div>
   <div class="tab-pane" id="members">...</div>
 </div><!--/.tab-content -->
-
-
 @stop
