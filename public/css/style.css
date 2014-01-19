@@ -59,23 +59,110 @@ body {
 /* Set the aside for the login and the register page */
 .login-register-aside{
   font-size: 12px;
-  margin: 80px 0 0 0;
   line-height: 1.62;
+  margin: 80px 0 0 0;
 }
 
 /* Set nav-tabs page */
-.nav-tabs-bottom{
-  margin: 0 0 20px 0;
+.board-shade{
+  border-radius: 2px;
+  box-shadow: 0 0 4px rgba(0,0,0,.25);
+  display: block;
+  margin: 20px auto 20px;
+  padding: 10px 10px 10px 10px;
+  -webkit-box-shadow: 0 0 4px rgba(0,0,0,.25);
 }
 
-.thumbnail-middle{
+.lightbox{}
+.lightbox:hover{}
+.lightbox:active{background:#dcdcdc;}
+.lightbox:focus{background:#e0ffff;}
+
+.story-image{
+  border-radius: 2px;
+  color: #88818d;
+  cursor: pointer;
+  font-weight: 300;
+  margin: 0 auto 10px;
   text-align: center;
 }
 
-.thumbnail-justify{
-  text-align: justify;
+.story-actions{
+  position: absolute;
+  top: 40px;
+  left: 210px;
 }
 
-.story-image{
-  margin: 5px 5px 0 5px;
+.story-title{
+  font-size: 15px;
+  margin: 10px auto 0px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space:nowrap;
+  width: 240px;
+}
+
+.story-info{
+  border-top: 1px solid #e8e8e8;
+  color: #cfccd0;
+  font-size: 12px;
+  font-weight: 500;
+  height: 40px;
+  letter-spacing: 1px;
+  line-height: 40px;
+}
+
+.public-pull-left{
+  float: left;
+}
+
+.public-pull-right{
+  float: right;
+}
+
+.publisher{
+  overflow: hidden;
+  padding: 16px 15px 5px 15px;
+}
+
+.publisher-box{
+  border-bottom: 1px solid #eeeeee;
+  height: 60px;
+}
+
+.publisher-pull-left{
+  float: left;
+  width: 50px;
+}
+
+.publisher-pull-right{
+  float: left;
+  margin: 5px 0 0 10px;
+}
+
+.publisher-pull-right ul{
+  font-size: 10px;
+}
+
+.published{
+  font-size: 12px;
+  padding: 8px 0 0 0;
+}
+
+.published ul{
+  text-align: center;
+  padding: 5px 0 0 0;
+}
+
+.fans{
+  font-size: 12px;
+}
+
+.fans a{
+  text-align: right;
+}
+
+.fans-image{
+  text-align: center;
+  margin:10px 0 0 0;
 }
