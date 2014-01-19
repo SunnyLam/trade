@@ -70,6 +70,27 @@ Route::post('/node/create',
   ));
 
 /*================================
+=            Node SHOW            =
+================================*/
+
+Route::get('/node/show', function(){
+  $data = prepare_data();
+  return View::make('/node/show', $data);
+});
+
+
+/*================================
+=            Test            =
+================================*/
+
+Route::get('/testtest', function(){
+  $data = prepare_data();
+  return View::make('/testtest/testtest', $data);
+});
+
+
+
+/*================================
 =            Search            =
 ================================*/
 
