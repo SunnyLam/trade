@@ -32,9 +32,9 @@
     <label for="type" class="col-sm-4 control-label"> 类 别 </label>
     <div class="col-sm-8">
       <select id="type" name="type" class="form-control">
-        <option>阅读角落</option>
-        <option>家居生活</option>
-        <option>手作工坊</option>
+        <option> 阅读角落 </option>
+        <option> 家居生活 </option>
+        <option> 手作工坊 </option>
       </select>
     </div>
   </div>
